@@ -1,7 +1,7 @@
 const ErrorHandler = require("../utils/ErrorHandler");
 const catchAsyncErrors = require("./asyncErrors");
 const jwt = require('jsonwebtoken');
-const User = require('../models/userModel');
+const User_Model = require('../models/userModel');
 
 
 const AuthenticateUser = catchAsyncErrors(async (req, res, next) => {
@@ -14,7 +14,7 @@ const AuthenticateUser = catchAsyncErrors(async (req, res, next) => {
     // like 
     const decodedData = jwt.verify(token, process.env.JWT_SECRET); // it verifies that it's valid token or not 
     // if yes then we will search in user on the base of this by accessing its id ..... we made jwt token using user id ----- look responseWithToken.js for this that we used current user to create token
-    req.user = await User.findById(decodedData.id); // it will find the user on the base of id and save it in req.user
+    req.user = await User_Model.findById(decodedData.id); // it will find the user on the base of id and save it in req.user
     next(); // next call krain ga jo next middleware hai uss ka
 });
 

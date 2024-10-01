@@ -16,7 +16,7 @@ const {
     removeFromCart,
     getCart,
     getAllProducts 
-} = require("../controllers/ProductController");
+} = require("../controllers/productController");
 
 const { AuthenticateUser, isUserAdmin } = require("../middleware/Authenticate");
 

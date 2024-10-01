@@ -7,7 +7,7 @@ const { createOrder,
     updateOrderStatus,
     getMyOrders,
     delete_Order
-} = require('../controllers/OrderController');
+} = require('../controllers/orderController');
 
 const { AuthenticateUser, isUserAdmin } = require("../middleware/Authenticate");
 

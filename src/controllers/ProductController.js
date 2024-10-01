@@ -2,7 +2,7 @@ const Product = require('../models/ProductModel');
 const ErrorHandler = require('../utils/ErrorHandler');
 const catchAsyncErrors = require('../middleware/asyncErrors');
 const Features = require('../utils/Features');
-const Usermodel = require('../models/UserModel');
+const Usermodel = require('../models/userModel');
 
 
 const createProduct = catchAsyncErrors(

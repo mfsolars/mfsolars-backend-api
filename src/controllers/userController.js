@@ -6,8 +6,6 @@ const sendEmail = require('../utils/sendEmail');
 
 const bcrypter = require('bcryptjs');
 const crypto = require('crypto');
-const cloudinary = require('cloudinary');
-const ProductModel = require('../models/ProductModel');
 
 
 
