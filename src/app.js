@@ -10,7 +10,7 @@ const ErrorMiddleWare = require('./middleware/error');
 
 // importing product router   // router ko import kia hai
 // -------------------------------------------------------
-const productRoutesAll = require("./routes/ProductsRoutes");  // router ko import kia hai
+const productRoutesAll = require("./routes/ProductsRoutes");
 const user_routes = require("./routes/userRoutes");
 const orderRoutes = require("./routes/OrderRoutes");
 const contactRoutes = require("./routes/ContactRoutes");
@@ -31,7 +31,8 @@ app.use(cookieParser()); // cookie parser ka use kara ga
 
 // cors usage
 app.use(crossOriginSharing({
-    origin: 'http://localhost:5173',
+    // origin: 'http://localhost:5173',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
