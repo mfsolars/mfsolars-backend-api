@@ -15,9 +15,9 @@ process.on('uncaughtException', (err) => {
 
 // -------------------------------------------------------
 // importing modules to use in this file
-const app = require('./app');
+const app = require('./src/app');
 const dotenv = require('dotenv');   // dotenv ka use env values ko use krna ka lia kia hai
-const connectDatabase = require('./database/databaseConnection');    // databaseConnection.js ko import kia hai
+const connectDatabase = require('./src/database/databaseConnection');    // databaseConnection.js ko import kia hai
 const cloudinary = require('cloudinary');    // cloudinary ko import kia hai
 
 
