@@ -99,6 +99,8 @@ const removeFromWishlist = catchAsyncErrors(async (req, res, next) => {
 const removeFromCart = catchAsyncErrors(async (req, res, next) => {
     const user = req.user;
     const productId = req.body.product; // Assuming req.body contains a product field with the product ID
+    console.log(productId);
+    
 
     // Check if the product exists in the wishlist
     const productIndex = user.cart.findIndex(item => item.product.toString() === productId);
