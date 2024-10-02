@@ -63,18 +63,6 @@ const loginUser = catchAsyncErrors(
 
 const logoutUser = catchAsyncErrors(
     async (req, res, next) => {
-
-        const { token } = req.cookies;
-        if (!token) {
-            return next(new ErrorHandler("No user is logged in", 400));
-        }
-
-
-
-        // res.cookie("token", null, {
-        //     expires: new Date(Date.now()),
-        //     httpOnly: true
-        // })
         res.clearCookie("token");
         res.status(200).json({
             success: true,
@@ -99,12 +87,12 @@ const forgetPassword = catchAsyncErrors(
 
             await sendEmail({
                 email: user.email,
-                subject: "Ecommerce Password Recovery",
+                subject: "MF-Solars Password Recovery",
                 message: email_message
             });
             res.status(200).json({
                 success: true,
-                message: `Email sent to ${user.email} successfully.\n Please check your email`
+                message: `Email sent to ${user.email} successfully.\n Please check your email and if you haven't requested this email then please ignore it`
             })
         } catch (error) {
             user.resetPasswordToken = undefined;

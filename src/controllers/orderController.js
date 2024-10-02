@@ -1,7 +1,7 @@
 const Order = require('../models/ordersModel');
 const Product = require('../models/productModel');              // yeh line of code hai jo product model ko import kar raha hai
-const catchAsyncErrors = require("../Middleware/asyncErrors");
-const ErrorHandler = require("../Utils/errorHandler");
+const catchAsyncErrors = require("../middleware/asyncErrors");
+const ErrorHandler = require("../utils/ErrorHandler");
 const User_Model = require('../models/userModel');
 
 
