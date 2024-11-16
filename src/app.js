@@ -31,7 +31,7 @@ app.use(cookieParser()); // cookie parser ka use kara ga
 
 // cors usage
 app.use(crossOriginSharing({
-    origin: ["https://mfsolars-frontend-production.up.railway.app","HTTP://localhost:4000"],  
+    origin: ["https://mfsolars-frontend-production.up.railway.app","http://localhost:5173","https://www.mfsolars.com"],  
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
