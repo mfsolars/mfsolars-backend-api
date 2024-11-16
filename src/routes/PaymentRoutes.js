@@ -6,7 +6,7 @@ const pay_router = express.Router();
 
 pay_router.route('/payment').post(AuthenticateUser, Makepayment);
 
-pay_router.route('/verifypayment/:reference').get(AuthenticateUser, verifyPayment);
+pay_router.route('/verify-payment').post(AuthenticateUser, verifyPayment);
 
 
 

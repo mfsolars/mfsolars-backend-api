@@ -28,27 +28,27 @@ const Makepayment = catchAsyncErrors(async (req, res, next) => {
 
 
 const verifyPayment = catchAsyncErrors(async (req, res, next) => {
-    const reference = req.params.reference;
-    console.log(reference, "backend");
+    const { reference } = req.body;
 
-    if (!reference) {
-        return res.status(400).json({ success: false, message: "Reference is missing" });
+  try {
+      const response = await axios.get(`https://api.paystack.co/transaction/verify/${reference}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.STRIPE_SECRET}`,
+      },
+    });
+
+    if (response.data.data.status === 'success') {
+      // success
+      res.json({ status: 'success', data: response.data });
+    
+    } else {
+        // failed
+      res.json({ status: 'failed', data: response.data });
     }
-
-    try {
-        const verification = await paystack.transaction.verify({ reference });
-        console.log(verification);
-
-        // Check if verification was successful
-        if (verification.data.status === 'success') {
-            return res.status(200).json({ success: true, message: 'Payment successful', data: verification });
-        } else {
-            return res.status(400).json({ success: false, message: 'Payment failed', data: verification });
-        }
-    } catch (error) {
-        console.error("Error verifying payment:", error);
-        return res.status(500).json({ success: false, message: 'Internal Server Error', error: error.message });
-    }
+  } catch (error) {
+    console.error("Error verifying payment:", error);
+    res.status(500).json({ status: 'error', message: 'Payment verification failed.' });
+  }
 });
 
 
